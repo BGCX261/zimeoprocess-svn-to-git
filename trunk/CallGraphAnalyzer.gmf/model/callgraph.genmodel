@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/CallGraphAnalyzer.gmf/src"
+    modelPluginID="CallGraphAnalyzer.gmf" modelName="CallGraph" modelPluginClass=""
+    importerID="org.eclipse.emf.importer.ecore" arrayAccessors="true" complianceLevel="5.0"
+    copyrightFields="false" providerRootExtendsClass="">
+  <foreignModel>callgraph.ecore</foreignModel>
+  <genPackages prefix="CallGraph" basePackage="it.unisannio.rcost" disposableProviderFactory="true"
+      generateExampleClass="false" ecorePackage="callgraph.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="callgraph.ecore#//FlagsModifier">
+      <genEnumLiterals ecoreEnumLiteral="callgraph.ecore#//FlagsModifier/abstract"/>
+      <genEnumLiterals ecoreEnumLiteral="callgraph.ecore#//FlagsModifier/final"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="callgraph.ecore#//ScopeModifier">
+      <genEnumLiterals ecoreEnumLiteral="callgraph.ecore#//ScopeModifier/protected"/>
+      <genEnumLiterals ecoreEnumLiteral="callgraph.ecore#//ScopeModifier/public"/>
+      <genEnumLiterals ecoreEnumLiteral="callgraph.ecore#//ScopeModifier/private"/>
+      <genEnumLiterals ecoreEnumLiteral="callgraph.ecore#//ScopeModifier/default"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="callgraph.ecore#//Node">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Node/inEdges"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Node/outEdges"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Node/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference callgraph.ecore#//Node/nodeContainer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Node/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="callgraph.ecore#//Edge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference callgraph.ecore#//Edge/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference callgraph.ecore#//Edge/target"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Graph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Graph/nodes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference callgraph.ecore#//Graph/firstLevelGraph"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Package/innerModules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Package/packages"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//ExplicitCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//ExplicitCall/groupId"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Class"/>
+    <genClasses ecoreClass="callgraph.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Field/isStrictFP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Field/isFinal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Field/isStatic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Field/isVolatile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Field/signature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Field/scopeModifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Field/isTransient"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Method">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/isStrictFp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/isStatic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/isNative"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/isSynchronized"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/scopeModifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/flagsModifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/signature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Method/isMain"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Pointcut">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Pointcut/scopeModifier"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Advice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Advice/isStrictFp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Advice/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Advice/localId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Advice/signature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Advice/pointcutExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Aspect">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Aspect/pointcuts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Aspect/advices"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Interface">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Interface/methods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Interface/fields"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Interface/isStatic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Interface/isStrictFp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Interface/scopeModifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Interface/flagsModifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Interface/innerModules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Interface/compilationUnit"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="callgraph.ecore#//NodeContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//NodeContainer/packageName"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//ImplicitCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference callgraph.ecore#//ImplicitCall/joinPointShadow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//ImplicitCall/joinPointShadowType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//ImplicitCall/sourceLine"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Association"/>
+    <genClasses ecoreClass="callgraph.ecore#//Implementation"/>
+    <genClasses ecoreClass="callgraph.ecore#//Dependence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Dependence/isGet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Dependence/isSet"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//Extension"/>
+    <genClasses ecoreClass="callgraph.ecore#//Project">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//Project/rootPackages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Project/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute callgraph.ecore#//Project/author"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="callgraph.ecore#//NodeLeaf"/>
+    <genClasses ecoreClass="callgraph.ecore#//ImplicitCallDecorator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//ImplicitCallDecorator/implicitCalls"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//ExplicitCallDecorator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//ExplicitCallDecorator/explicitCalls"/>
+    </genClasses>
+    <genClasses ecoreClass="callgraph.ecore#//DependenceDecorator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference callgraph.ecore#//DependenceDecorator/dependences"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="callgraph.ecore#//EdgeDecorator"/>
+    <genClasses image="false" ecoreClass="callgraph.ecore#//JoinPointShadow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference callgraph.ecore#//JoinPointShadow/handlers"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

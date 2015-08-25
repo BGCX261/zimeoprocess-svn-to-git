@@ -1,0 +1,125 @@
+Un package contiene dei package
+Una classe contiene una classe
+Un'interfaccia ha degli attributi
+
+-------------------------------------------------
+
+1. Le chiamate implicite ad un aspetto per l'accesso ad un attributo devono partire dall'attributo o dal metodo ke vi accede?
+2. Nel caso di polimorfismo con interfaccia si mette una freccia sia all'interfaccia ke alle sue implementazioni
+3. Vanno indicate le frecce delle generalizzazzioni e delle implementazioni
+4. Come differenziare le chiamate ad un advice quando legge o scrive un attibuto? (l'arco che dal metodo va all'attibuto deve indicare il tipo di accesso all'attributo)
+5. Inserire chiamate esplicite tra metodo e attributo? se si....quante?
+6. Inserire nella tabella Pointcut l'espressione dello stesso
+7. E' possibile indicare gli attributi come nodi intermedi????
+8. Assumere che, se nn specificato, il nodo iniziale è il main????
+
+
+SIMBOLOGIA
+1. Ereditarietà: Freccia chiusa con linea continua
+2. Implementazione: Freccia chiusa con linea tratteggiata
+3. Chimata esplicita: Freccia aperta con linea continua
+4. Chimata implicita: Freccia aperta con linea tratteggiata
+
+6. Package:
+5. Classe: 
+7. Interfaccia:
+8. Aspetto:
+9. Metodo:
+10. Campo:
+
+
+Package->Package		= Call
+Package->Class			= -
+Package->Interface		= -
+Package->Field			= -
+Package->Method			= -
+Package->Aspect			= -
+Package->Advice			= -
+Package->Poincut		= -
+
+Interface->Package		= -
+Interface->Class		= -
+Interface->Interface	= Extension
+Interface->Field		= -
+Interface->Method		= -
+Interface->Aspect		= -
+Interface->Advice		= -
+Interface->Poincut		= -
+
+Class->Package			= -
+Class->Class			= Explicit, Extension
+Class->Interface		= Explicit, Implementation
+Class->Field			= -
+Class->Method			= -
+Class->Aspect			= Implicit, (Explicit ???)
+Class->Advice			= -
+Class->Poincut			= -
+
+Method->Package			= -
+Method->Class			= -
+Method->Interface		= -
+Method->Field			= Dependence
+Method->Method			= Explicit
+Method->Aspect			= -
+Method->Advice			= Implicit
+Method->Poincut			= -
+
+Field->Package			= -
+Field->Class			= -
+Field->Interface		= -
+Field->Field			= -
+Field->Method			= -
+Field->Aspect			= -
+Field->Advice			= -
+Field->Poincut			= -
+
+Aspect->Package			= -
+Aspect->Class			= Explicit, Extension
+Aspect->Interface		= Explicit, Implementation
+Aspect->Field			= -
+Aspect->Method			= -
+Aspect->Aspect			= Extension, Implicit, (Explicit ???)
+Aspect->Advice			= -
+Aspect->Poincut			= -
+
+Advice->Package			= -
+Advice->Class			= -
+Advice->Interface		= -
+Advice->Field			= Dependence
+Advice->Method			= Explicit
+Advice->Aspect			= -
+Advice->Advice			= Implicit
+Advice->Poincut			= Association
+
+Poincut->Package		= -
+Poincut->Class			= -
+Poincut->Interface		= -
+Poincut->Field			= -
+Poincut->Method			= -
+Poincut->Aspect			= -
+Poincut->Advice			= Association
+Poincut->Poincut		= -
+-----------------------------------------------
+Package->Package		= Call, Dependence
+
+Interface->Interface	= Extension
+
+Class->Class			= Explicit, Extension, Dependence
+Class->Interface		= Explicit, Implementation
+Class->Aspect			= Call, Dependence
+
+Method->Field			= Dependence
+Method->Method			= Explicit
+Method->Advice			= Implicit
+
+Aspect->Class			= Explicit, Extension, Dependence
+Aspect->Interface		= Explicit, Implementation
+Aspect->Aspect			= Extension, Call, Dependence
+
+Advice->Field			= Dependence
+Advice->Method			= Explicit
+Advice->Advice			= Implicit
+Advice->Poincut			= Association
+
+Poincut->Advice			= Association
+

@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+	<extension point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
+      <layoutProvider
+      	 class="it.unisannio.rcost.callgraphanalyzer.diagram.providers.CallGraphLayoutProvider">
+         <Priority name="Medium"></Priority>
+      </layoutProvider>
+   </extension>
+
+   <extension point="org.eclipse.team.core.fileTypes">
+      <?gmfgen generated="true"?>
+      <fileTypes
+         type="text"
+         extension="callgraph_diagram">
+      </fileTypes>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <?gmfgen generated="true"?>
+      <parser
+         type="callgraph_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <?gmfgen generated="true"?>
+      <editor
+         id="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/CallGraphDiagramFile.gif"
+         extensions="callgraph_diagram"
+         default="true"
+         class="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramEditor"
+         matchingStrategy="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphMatchingStrategy"
+         contributorClass="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="it.unisannio.rcost.callgraphanalyzer.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/CallGraphDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphCreationWizard"
+  	     id="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            adaptable="false"
+            id="CallGraphAnalyzer.gmf.diagram.LoadResource"
+            objectClass="it.unisannio.rcost.callgraphanalyzer.diagram.edit.parts.GraphEditPart">
+         <action
+               class="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphLoadResourceAction"
+               enablesFor="1"
+               id="CallGraphAnalyzer.gmf.diagram.LoadResourceAction"
+               label="%loadResourceActionLabel"
+               menubarPath="additions">
+         </action>
+      </objectContribution>           
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="CallGraphAnalyzer.gmf.diagram.InitDiagram"
+            nameFilter="*.callgraph"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="CallGraphAnalyzer.gmf.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="CallGraphPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="CallGraphPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+      <?gmfgen generated="true"?>
+      <contributionItemProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContributionItemProvider"
+            checkPluginLoaded="false">
+         <Priority name="Low"/>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+         </popupContribution>
+      </contributionItemProvider>
+   </extension>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <?gmfgen generated="true"?>
+      <initializer class="it.unisannio.rcost.callgraphanalyzer.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <?gmfgen generated="true"?>
+      <page
+            id="CallGraphAnalyzer.gmf.diagram.general"
+            name="%preference.page.title.CallGraphAnalyzer.gmf.diagram.general"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="CallGraphAnalyzer.gmf.diagram.appearance"
+            name="%preference.page.title.CallGraphAnalyzer.gmf.diagram.appearance"
+            category="CallGraphAnalyzer.gmf.diagram.general"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="CallGraphAnalyzer.gmf.diagram.connections"
+            name="%preference.page.title.CallGraphAnalyzer.gmf.diagram.connections"
+            category="CallGraphAnalyzer.gmf.diagram.general"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="CallGraphAnalyzer.gmf.diagram.printing"
+            name="%preference.page.title.CallGraphAnalyzer.gmf.diagram.printing"
+            category="CallGraphAnalyzer.gmf.diagram.general"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="CallGraphAnalyzer.gmf.diagram.rulersAndGrid"
+            name="%preference.page.title.CallGraphAnalyzer.gmf.diagram.rulersAndGrid"
+            category="CallGraphAnalyzer.gmf.diagram.general"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+      <page
+            id="CallGraphAnalyzer.gmf.diagram.pathmaps"
+            name="%preference.page.title.CallGraphAnalyzer.gmf.diagram.pathmaps"
+            category="CallGraphAnalyzer.gmf.diagram.general"
+            class="org.eclipse.gmf.runtime.emf.ui.preferences.PathmapsPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="CallGraphAnalyzer.gmf.diagram"
+            labelProvider="it.unisannio.rcost.callgraphanalyzer.diagram.sheet.CallGraphSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="CallGraphAnalyzer.gmf.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="CallGraphAnalyzer.gmf.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.sheet.CallGraphPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
+      <?gmfgen generated="true"?>
+      <viewProvider class="it.unisannio.rcost.callgraphanalyzer.diagram.providers.CallGraphViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="CallGraph"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints=""/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="it.unisannio.rcost.callgraphanalyzer.diagram.providers.CallGraphEditPartProvider">
+         <Priority name="Lowest"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="it.unisannio.rcost.callgraphanalyzer.diagram.providers.CallGraphModelingAssistantProvider">
+         <Priority name="Lowest"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders">
+      <?gmfgen generated="true"?>
+      <IconProvider class="it.unisannio.rcost.callgraphanalyzer.diagram.providers.CallGraphIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="it.unisannio.rcost.callgraphanalyzer.diagram.providers.CallGraphParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Graph_79"
+               name="%metatype.name.Graph_79"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Graph"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.GraphEditHelper">
+            <param name="semanticHint" value="79"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Package_1001"
+               name="%metatype.name.Package_1001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Package"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.PackageEditHelper">
+            <param name="semanticHint" value="1001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Aspect_1002"
+               name="%metatype.name.Aspect_1002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Aspect_2001"/>
+            <param name="semanticHint" value="1002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Class_1003"
+               name="%metatype.name.Class_1003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Class_2007"/>
+            <param name="semanticHint" value="1003"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Interface_1004"
+               name="%metatype.name.Interface_1004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Interface_2006"/>
+            <param name="semanticHint" value="1004"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Advice_1005"
+               name="%metatype.name.Advice_1005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Advice_2003"/>
+            <param name="semanticHint" value="1005"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Method_1006"
+               name="%metatype.name.Method_1006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Method_2004"/>
+            <param name="semanticHint" value="1006"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Field_1007"
+               name="%metatype.name.Field_1007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Field_2005"/>
+            <param name="semanticHint" value="1007"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Pointcut_1008"
+               name="%metatype.name.Pointcut_1008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Pointcut_2002"/>
+            <param name="semanticHint" value="1008"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Aspect_2001"
+               name="%metatype.name.Aspect_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Aspect"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.AspectEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Pointcut_2002"
+               name="%metatype.name.Pointcut_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Pointcut"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.PointcutEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Advice_2003"
+               name="%metatype.name.Advice_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Advice"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.AdviceEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Method_2004"
+               name="%metatype.name.Method_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Method"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.MethodEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Field_2005"
+               name="%metatype.name.Field_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Field"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.FieldEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Interface_2006"
+               name="%metatype.name.Interface_2006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Interface"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.ClassEditHelper">
+            <param name="semanticHint" value="2006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Class_2007"
+               name="%metatype.name.Class_2007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Class"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.InterfaceEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Aspect_2008"
+               name="%metatype.name.Aspect_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Aspect_2001"/>
+            <param name="semanticHint" value="2008"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Class_2009"
+               name="%metatype.name.Class_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Class_2007"/>
+            <param name="semanticHint" value="2009"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Interface_2010"
+               name="%metatype.name.Interface_2010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Interface_2006"/>
+            <param name="semanticHint" value="2010"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <specializationType
+               id="CallGraphAnalyzer.gmf.diagram.Package_2011"
+               name="%metatype.name.Package_2011"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="CallGraphAnalyzer.gmf.diagram.Package_1001"/>
+            <param name="semanticHint" value="2011"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.ExplicitCall_3001"
+               name="%metatype.name.ExplicitCall_3001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ExplicitCall"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.ExplicitCallEditHelper">
+            <param name="semanticHint" value="3001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Dependence_3002"
+               name="%metatype.name.Dependence_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Dependence"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.DependenceEditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Association_3003"
+               name="%metatype.name.Association_3003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Association"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.AssociationEditHelper">
+            <param name="semanticHint" value="3003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Extension_3004"
+               name="%metatype.name.Extension_3004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Extension"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.ExtensionEditHelper">
+            <param name="semanticHint" value="3004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.ImplicitCall_3005"
+               name="%metatype.name.ImplicitCall_3005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ImplicitCall"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.ImplicitCallEditHelper">
+            <param name="semanticHint" value="3005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="callgraphanalyzer">
+         <metamodelType
+               id="CallGraphAnalyzer.gmf.diagram.Implementation_3006"
+               name="%metatype.name.Implementation_3006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Implementation"
+               edithelper="it.unisannio.rcost.callgraphanalyzer.diagram.edit.helpers.ImplementationEditHelper">
+            <param name="semanticHint" value="3006"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="CallGraphClientContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="CallGraphAnalyzer.gmf.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="CallGraphClientContext">
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Graph_79"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Package_1001"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Aspect_1002"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Class_1003"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Interface_1004"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Advice_1005"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Method_1006"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Field_1007"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Pointcut_1008"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Aspect_2001"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Pointcut_2002"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Advice_2003"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Method_2004"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Field_2005"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Interface_2006"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Class_2007"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Aspect_2008"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Class_2009"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Interface_2010"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Package_2011"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.ExplicitCall_3001"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Dependence_3002"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Association_3003"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Extension_3004"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.ImplicitCall_3005"/>
+         <elementType ref="CallGraphAnalyzer.gmf.diagram.Implementation_3006"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="CallGraphAnalyzer.gmf.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="CallGraphAnalyzer.gmf.diagram"
+           properties="isURIEditorInput"
+           class="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.core.expressions.propertyTesters">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="CallGraphAnalyzer.gmf.diagram.DomainModelElementPropertyTester"
+           type="org.eclipse.emf.ecore.EObject"
+           namespace="CallGraphAnalyzer.gmf.diagram"
+           properties="isDomainModelElement"
+           class="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDomainModelElementTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="CallGraphAnalyzer.gmf.diagram.resourceContent"/>
+			<contentExtension pattern="CallGraphAnalyzer.gmf.diagram.domainResourceContent"/>
+            <contentExtension pattern="CallGraphAnalyzer.gmf.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="CallGraphAnalyzer.gmf.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="CallGraphAnalyzer.gmf.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphNavigatorContentProvider" 
+            labelProvider="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphNavigatorLabelProvider"
+            icon="icons/obj16/CallGraphDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="callgraph_diagram"/>
+               </and>
+               <instanceof value="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="CallGraphAnalyzer.gmf.diagram.navigatorSorter" 
+               class="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="callgraph_diagram"/>
+                  </and>
+                  <instanceof value="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="CallGraphAnalyzer.gmf.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphDomainNavigatorContentProvider" 
+            labelProvider="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphDomainNavigatorLabelProvider"
+            icon="icons/obj16/CallGraphDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="callgraph"/>
+               </and>
+               <and>
+                  <instanceof value="org.eclipse.emf.ecore.EObject"/>
+                  <test property="CallGraphAnalyzer.gmf.diagram.isDomainModelElement"/>
+               </and>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <and>
+       	       <instanceof value="org.eclipse.emf.ecore.EObject"/>
+       	       <test property="CallGraphAnalyzer.gmf.diagram.isDomainModelElement"/>
+       	    </and>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="CallGraphAnalyzer.gmf.diagram.navigatorActionProvider"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="CallGraphAnalyzer.gmf.diagram.navigatorLinkHelper"
+            class="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="CallGraphAnalyzer.gmf.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="it.unisannio.rcost.callgraphanalyzer.diagram.navigator.CallGraphAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramUpdateOpenedGraphCommand"
+         description="%update.diagram.description"
+         id="it.unisannio.rcost.callgraphanalyzer.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+      <command
+            defaultHandler="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramUpdateCommand"
+            id="it.unisannio.rcost.callgraphanalyzer.diagram.showCodeCommand"
+            name="Show Source Code">
+      </command>
+      <command
+            defaultHandler="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramUpdateOpenedGraphCommand"
+            id="it.unisannio.rcost.callgraphanalyzer.diagram.updateOpenedDiagram"
+            name="Update all the opened diagram">
+         <commandParameter
+               id="it.unisannio.rcost.callgraphanalyzer.diagram.updateOpenedDiagram.projectName"
+               name="it.unisannio.rcost.callgraphanalyzer.diagram.updateOpenedDiagram.projectNameParameter"
+               optional="false">
+         </commandParameter>
+      </command>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings">
+      <?gmfgen generated="false"?>
+      <key 
+         commandId="it.unisannio.rcost.callgraphanalyzer.diagram.updateDiagram"
+         contextId="it.unisannio.rcost.callgraphanalyzer.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+      <!--
+      <key
+            commandId="it.unisannio.rcost.callgraphanalyzer.diagram.showCodeCommand"
+            contextId="it.unisannio.rcost.callgraphanalyzer.diagram.ui.diagramContext"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+1">
+      </key>
+      <key
+            commandId="it.unisannio.rcost.callgraphanalyzer.diagram.decreaseAbstractionLevel"
+            contextId="it.unisannio.rcost.callgraphanalyzer.diagram.ui.diagramContext"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+2">
+      </key>
+      -->
+   </extension>
+   
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="it.unisannio.rcost.callgraphanalyzer.diagram.showCodeByMenu"
+            objectClass="org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart">
+         <action
+               class="it.unisannio.rcost.callgraphanalyzer.diagram.part.CallGraphDiagramShowCodeCommand"
+               enablesFor="1"
+               id="it.unisannio.rcost.callgraphanalyzer.diagram.showCodeAction"
+               label="Visualizza codice associato"
+               menubarPath="group1">
+         </action>
+      </objectContribution>                    
+</extension>
+</plugin>

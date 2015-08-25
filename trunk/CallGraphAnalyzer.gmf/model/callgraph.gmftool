@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <allMenus
+      xsi:type="gmftool:ContextMenu">
+    <items
+        xsi:type="gmftool:MenuAction"
+        title="Modifica"
+        kind="PROPCHANGE"/>
+    <items
+        xsi:type="gmftool:MenuAction"
+        title="Azione personalizzata"
+        kind="CUSTOM"/>
+  </allMenus>
+  <palette
+      title="CallGraphAnalyzerPalette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="CallGraphAnalyzer"
+        active="//@palette/@tools.0/@tools.2/@tools.4">
+      <tools
+          xsi:type="gmftool:ToolGroup"
+          title="Contenitori"
+          description="">
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Package"
+            description="Create new Package">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Package.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Classe"
+            description="Create new Class">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/obj16/Class.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Interfaccia"
+            description="Create new Interface">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Interface.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Aspetto"
+            description="Create new Aspect">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/obj16/Aspect.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+      </tools>
+      <tools
+          xsi:type="gmftool:ToolGroup"
+          title="Elementi"
+          active="//@palette/@tools.0/@tools.1/@tools.0">
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Metodo"
+            description="Create new Method">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Method.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Campo"
+            description="Create new Field">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Field.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Advice"
+            description="Create new Advice">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Advice.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+      </tools>
+      <tools
+          xsi:type="gmftool:ToolGroup"
+          title="Collegamenti"
+          description=""
+          active="//@palette/@tools.0/@tools.2/@tools.0">
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Chiamata esplicita"
+            description="Create new ExplicitCall">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="icons/obj16/ExplicitCall.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Chiamata implicita"
+            description="Create new ImplicitCall">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/ImplicitCall.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:PaletteSeparator"/>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Associazione"
+            description="Create new Association">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Associates.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Dipendenza"
+            description="Create new Dependence">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Depends.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Implementazione"
+            description="Create new Implementation">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Implements.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+        <tools
+            xsi:type="gmftool:CreationTool"
+            title="Estensione"
+            description="Create new Extension">
+          <smallIcon
+              xsi:type="gmftool:BundleImage"
+              path="/icons/obj16/Extends.gif"
+              bundle="CallGraphAnalyzer.gmf"/>
+        </tools>
+      </tools>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

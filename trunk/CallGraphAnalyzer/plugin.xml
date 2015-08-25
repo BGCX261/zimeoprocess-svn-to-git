@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="CallGraph Analyzer"
+            id="CallGraphAnalyzerPlugin">
+      </category>
+      <wizard
+            name="CallGraph"
+            icon="/icons/icon.gif"
+            category="CallGraphAnalyzerPlugin"
+            class="it.unisannio.rcost.callgraphanalyzer.ui.wizards.Wizard"
+            id="it.rcost.unisannio.callgraphanalyzer.ui.wizards.Wizard">
+      </wizard>
+   </extension>
+   <extension point="org.eclipse.ui.views">
+		<category
+            name="CallGraph Analyzer"
+            id="CallGraphAnalyzerPlugin">
+		</category>
+		<view name="Sample View" icon="/icons/icon.gif"
+			category="CallGraphAnalyzerPlugin"
+			class="it.unisannio.rcost.callgraphanalyzer.ui.views.DiagramView"
+			id="it.rcost.unisannio.callgraphanalyzer.ui.views.DiagramView">
+		</view>
+	</extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="CallGraph Analyzer"
+            icon="/icons/icon.gif"
+            class="it.unisannio.rcost.callgraphanalyzer.ui.perspectives.CallGraphAnalyzerPerspective"
+            id="it.rcost.unisannio.callgraphanalyzer.ui.perspectives.CallGraphAnalyzerPerspective">
+      </perspective>
+   </extension>
+	<extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet label="CallGraph Action Set" visible="true" id="CallGraphAnalyzerPlugin.actionSet">
+         <menu label="Menu &amp;grafo" id="graphMenu">
+            <separator name="graphGroup">
+            </separator>
+         </menu>
+         <action
+               label="&amp;Apri grafo"
+               icon="/icons/icon.gif"
+               class="it.unisannio.rcost.callgraphanalyzer.ui.actions.OpenGraphAction"
+               tooltip="Apri il callgraph"
+               menubarPath="graphMenu/graphGroup"
+               toolbarPath="graphGroup"
+               id="it.rcost.unisannio.callgraphanalyzer.ui.actions.OpenGraphAction">
+         </action>
+      </actionSet>
+   </extension>
+ <extension
+       point="org.eclipse.ui.popupMenus">
+    <objectContribution
+          id="CallGraphAnalyzer.popUp"
+          objectClass="org.eclipse.jdt.core.IJavaElement">
+       <menu
+             id="CallGraphAnalyzer.menu1"
+             label="CallGraph Analyzer"
+             path="additions">
+          <separator
+                name="group1">
+          </separator>
+       </menu>
+       <action
+             class="it.unisannio.rcost.callgraphanalyzer.ui.popup.actions.ShowGraphAdvancedAction"
+             enablesFor="1"
+             id="it.unisannio.rcost.callgraphanalyzer.ui.popup.actions.ShowGraphAdvancedAction"
+             label="Avanzato"
+             menubarPath="CallGraphAnalyzer.menu1/group1">
+       </action>
+       <action
+             class="it.unisannio.rcost.callgraphanalyzer.ui.popup.actions.ShowGraphAction"
+             enablesFor="1"
+             id="it.unisannio.rcost.callgraphanalyzer.ui.popup.actions.ShowGraphAction"
+             label="Base"
+             menubarPath="CallGraphAnalyzer.menu1/group1">
+       </action>
+    </objectContribution>
+ </extension>
+</plugin>

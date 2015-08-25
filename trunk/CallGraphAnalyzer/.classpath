@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="it/rcost/unisannio/callgraphanalyzer/ui/wizards/CopiadiWizardPage.java|it/rcost/unisannio/callgraphanalyzer/ui/wizards/WizardPage1_old.java|it/rcost/unisannio/callgraphanalyzer/ui/A.java|it/rcost/unisannio/callgraphanalyzer/ui/B.java|it/rcost/unisannio/callgraphanalyzer/extractors/model/|it/rcost/unisannio/callgraphanalyzer/extractors/ModelEmitter.java|it/rcost/unisannio/callgraphanalyzer/extractors/NoDefaultProjectException.java|it/unisannio/rcost/callgraphanalyzer/extractors/model/|it/unisannio/rcost/callgraphanalyzer/ui/actions/ArrangeAction.java" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

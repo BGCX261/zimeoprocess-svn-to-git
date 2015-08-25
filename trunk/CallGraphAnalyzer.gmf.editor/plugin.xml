@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "it.unisannio.rcost.callgraphanalyzer.presentation.CallGraphModelWizardID"
+      name = "%_UI_CallGraphModelWizard_label"
+      class = "it.unisannio.rcost.callgraphanalyzer.presentation.CallGraphModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/CallGraphModelFile.gif">
+      <description>%_UI_CallGraphModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "it.unisannio.rcost.callgraphanalyzer.presentation.CallGraphEditorID"
+        name = "%_UI_CallGraphEditor_label"
+        icon = "icons/full/obj16/CallGraphModelFile.gif"
+        extensions = "callgraph"
+        class = "it.unisannio.rcost.callgraphanalyzer.presentation.CallGraphEditor" 
+        contributorClass="it.unisannio.rcost.callgraphanalyzer.presentation.CallGraphActionBarContributor" >
+    </editor>
+  </extension>    
+</plugin>

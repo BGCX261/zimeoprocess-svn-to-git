@@ -1,0 +1,7 @@
+# Tracing options for the CallGraphAnalyzer.gmf.diagram plug-in
+
+# Common issues
+CallGraphAnalyzer.gmf.diagram/debug=false
+
+# Visual IDs
+CallGraphAnalyzer.gmf.diagram/debug/visualID=false

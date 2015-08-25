@@ -1,0 +1,10 @@
+
+[Testare]Attaccarci ai ragazzi. (sincronizzazione) 
+
+[1/2] Gestire il layout automatico
+
+Inserire i Variant i un file word
+
+Ricontrollare SRS (inserire nuova immagine del diagramma delle classi)
+
+Matrice di tracciabilia'

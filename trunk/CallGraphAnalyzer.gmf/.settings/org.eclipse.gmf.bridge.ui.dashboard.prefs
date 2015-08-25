@@ -1,0 +1,8 @@
+#Sat May 17 11:14:48 CEST 2008
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/CallGraphAnalyzer.gmf/model/callgraph.genmodel
+gmf_dashboard/domainModel=platform\:/resource/CallGraphAnalyzer.gmf/model/callgraph.ecore
+gmf_dashboard/generationModel=platform\:/resource/CallGraphAnalyzer.gmf/model/callgraph.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/CallGraphAnalyzer.gmf/model/callgraph.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/CallGraphAnalyzer.gmf/model/callgraph.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/CallGraphAnalyzer.gmf/model/callgraph.gmftool

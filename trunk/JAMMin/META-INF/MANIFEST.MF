@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JAMMin Plug-in
+Bundle-SymbolicName: JAMMin
+Bundle-Version: 1.0.0
+Bundle-Activator: jammin.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core
+Export-Package: it.unisannio.se.c3rep.extractors.staticmodel
+Eclipse-LazyStart: true
